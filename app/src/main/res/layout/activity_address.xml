@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dp_8"
+    tools:context=".ui.AddressActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/app_header" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_address_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:drawableStart="@drawable/ic_my_location"
+        android:drawablePadding="@dimen/dp_8"
+        android:drawableTint="@color/black"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Delivery Address"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <EditText
+        android:id="@+id/et_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@drawable/edittext_curve_bg"
+        android:gravity="top"
+        android:hint="Add Address"
+        android:minLines="5"
+        android:padding="@dimen/dp_16"
+        app:layout_constraintEnd_toEndOf="@id/tv_address_title"
+        app:layout_constraintStart_toStartOf="@id/tv_address_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_address_title" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_8"
+        android:background="@drawable/rounded_btn_corner"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

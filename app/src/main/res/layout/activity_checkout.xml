@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/root"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/app_header" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_proceed"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_8">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/section_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/rb_pickup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Pickup"
+                    android:textSize="@dimen/sp_18"
+                    app:layout_constraintEnd_toStartOf="@id/rb_home_delivery"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RadioButton
+                    android:id="@+id/rb_home_delivery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Home Delivery"
+                    android:textSize="@dimen/sp_18"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/rb_pickup"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_delivery_address_to"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_8"
+                    android:layout_marginTop="@dimen/dp_12"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Delivery Address "
+                    android:textSize="@dimen/sp_16"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rb_pickup" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Change"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/sp_18"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_delivery_address_to" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_delivery_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="@dimen/sp_16"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/tv_change"
+                    app:layout_constraintStart_toStartOf="@id/tv_delivery_address_to"
+                    app:layout_constraintTop_toBottomOf="@id/tv_delivery_address_to" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/v3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="#EFEFEF"
+                app:layout_constraintBottom_toTopOf="@id/rv_cart"
+                app:layout_constraintTop_toBottomOf="@id/section_address" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_cart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                app:layout_constraintTop_toBottomOf="@id/v3" />
+
+            <View
+                android:id="@+id/v1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:background="#EFEFEF"
+                app:layout_constraintTop_toBottomOf="@id/rv_cart" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_item_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_24"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Item total"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintStart_toStartOf="@id/v1"
+                app:layout_constraintTop_toBottomOf="@id/v1" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_item_total_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="$50.00"
+                android:textColor="@color/yellow_app"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintEnd_toEndOf="@id/v1"
+                app:layout_constraintTop_toTopOf="@id/tv_item_total" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_delivery_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_12"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Delivery Fee"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintStart_toStartOf="@id/v1"
+                app:layout_constraintTop_toBottomOf="@id/tv_item_total" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_delivery_fee_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Free"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintEnd_toEndOf="@id/v1"
+                app:layout_constraintTop_toTopOf="@id/tv_delivery_fee" />
+
+            <View
+                android:id="@+id/v2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_24"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:background="#EFEFEF"
+                app:layout_constraintTop_toBottomOf="@id/tv_delivery_fee" />
+
+            <TextView
+                android:id="@+id/tilDate"
+                android:layout_width="0dp"
+                android:padding="@dimen/dp_16"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:hint="Enter Delivery Date"
+                android:background="@drawable/plane_corner_black"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                android:layout_marginTop="@dimen/dp_16"
+                app:layout_constraintEnd_toEndOf="@id/v1"
+                app:layout_constraintStart_toStartOf="@id/v2"
+                app:layout_constraintTop_toBottomOf="@+id/v2">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinner_time"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="@dimen/dp_19"
+                android:background="@drawable/plane_corner_black"
+                android:paddingStart="@dimen/dp_10"
+                app:layout_constraintEnd_toEndOf="@id/v1"
+                app:layout_constraintStart_toStartOf="@id/v2"
+                app:layout_constraintTop_toBottomOf="@+id/tilDate" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Total"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_24"
+                app:layout_constraintStart_toStartOf="@id/v2"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_time" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_total_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/poppins_medium"
+                android:text="$40.00"
+                android:textColor="@color/yellow_app"
+                android:textSize="@dimen/sp_24"
+                app:layout_constraintEnd_toEndOf="@id/v2"
+                app:layout_constraintTop_toBottomOf="@id/spinner_time" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_proceed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:background="@drawable/rounded_btn_corner"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Confirm Order"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
